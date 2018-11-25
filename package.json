@@ -1,6 +1,6 @@
 {
   "name": "ewallet-js",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "This is js library for ewallet",
   "main": "index.js",
   "scripts": {
