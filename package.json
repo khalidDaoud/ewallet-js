@@ -1,0 +1,25 @@
+{
+  "name": "ewallet-js",
+  "version": "0.0.1",
+  "description": "This is js library for ewallet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/block-base/ewallet-js.git"
+  },
+  "keywords": [
+    "ewallet"
+  ],
+  "author": "ookimaki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/block-base/ewallet-js/issues"
+  },
+  "homepage": "https://github.com/block-base/ewallet-js#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
