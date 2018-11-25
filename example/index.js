@@ -42,15 +42,14 @@ async function main() {
 
     var result = await ewallet.adminAll(data);
     var admins = result.data.data;
+    var admin = admins[0].id;
 
     //Admin Get
     var data = {
-        "id": admins[0].id
+        "id": admin
     }
 
     var result = await ewallet.adminGet(data);
-
-
 
 
     //Me Get
@@ -73,10 +72,11 @@ async function main() {
 
     var result = await ewallet.userAll(data);
     var users = result.data.data;
+    var user = users[0].id;
 
     //User Get
     var data = {
-        "id": users[0].id
+        "id": user
     }
 
     var result = await ewallet.userGet(data);
@@ -93,24 +93,25 @@ async function main() {
 
     var result = await ewallet.tokenAll(data);
     var tokens = result.data.data;
+    var token = tokens[0].id
 
     //Token Get
     var data = {
-        "id": tokens[0].id
+        "id": token 
     }
 
     var result = await ewallet.tokenGet(data);
 
     //Token Stat
     var data = {
-        "id": tokens[0].id
+        "id": token 
     }
 
     var result = await ewallet.tokenStats(data);
 
     //Token Get Mints
     var data = {
-        "id": tokens[0].id,
+        "id": token,
         "page": 1,
         "per_page": 10,
         "search_term": "",
@@ -135,39 +136,52 @@ async function main() {
     }
 
     var result = await ewallet.accountAll(data);
-    var id = result.data.data[0].id;
-    console.log(result)
+    var accounts = result.data.data;
+    var account = accounts[0].id;
 
     //Account Get
     var data = {
-        "id": id
+        "id": account
     }
 
     var result = await ewallet.accountGet(data);
-    console.log(result)    
 
     //Account Create    
     var data = {
         "name": "Account Name",
         "description": "The account description",
-        "parent_id": id,
+        "parent_id": account,
         "category_ids": [],
         "metadata": {},
         "encrypted_metadata": {}
-      }
+    }
 
     var result = await ewallet.accountCreate(data);
-    console.log(result)  
 
     //Account Update
     var data = {
-        "id": id,
+        "id": account,
         "name": "Account Name 2",
         "description": "The account description 2",
         "category_ids": [],
         "metadata": {},
         "encrypted_metadata": {}
-      }    
+    }
+
+    var result = await ewallet.accountUpdate(data);
+
+    var data = {
+        "id": account,
+        "avatar": "./avater.jpg"
+    }
+
+    var result = await ewallet.accountUploadAvatar(data);
+
+
+    
+
+
+    
 
 
 
@@ -187,11 +201,11 @@ async function main() {
 
     //Access Key Create
     var result = await ewallet.accessKeyCreate();
-    var id = result.data.id;
+    var accessKey = result.data.id;
 
     //Access Key Update
     var data = {
-        "id": id,
+        "id": accessKey,
         "expired": true
     }
 
@@ -199,7 +213,7 @@ async function main() {
 
     //Access Key Delete
     var data = {
-        "id": id,
+        "id": accessKey,
     }
 
     var result = await ewallet.accessKeyDelete(data);
@@ -217,17 +231,17 @@ async function main() {
 
     //API Key Create
     var result = await ewallet.apiKeyCreate();
-    var id = result.data.id;
+    var apiKey = result.data.id;
 
     var data = {
-        "id": id,
+        "id": apiKey,
         "expired": true
     }
 
     var result = await ewallet.apiKeyUpdate(data);
 
     var data = {
-        "id": id,
+        "id": apiKey,
     }
 
     var result = await ewallet.apiKeyDelete(data);
