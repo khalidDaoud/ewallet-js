@@ -1,9 +1,11 @@
 Ewallet = require("../index.js");
 
-ewallet = new Ewallet("http://160.16.137.244:4000/api");
+ewallet = new Ewallet.Admin("http://160.16.137.244:4000/api");
 
 async function main() {
 
+    //Admin Session
+    //Resources related to admin session tokens.
     //Admin Login
     var data = {
         "email": "ts@block-base.co",
@@ -24,12 +26,14 @@ async function main() {
     ewallet.setAuthorization(adminAuthorization);
 
     //Auth Token Switch Account
-
     var data = {
-        "accound_id": ''
+        "account_id": 'acc_01cx5ezsg3xr5h72k8cbzrat2j'
     }
 
     var result = await ewallet.authTokenSwitchAccount(data);
+
+    //Admin
+    //Resources related to admin users.
 
     //Admin All
     var data = {
@@ -60,6 +64,12 @@ async function main() {
 
     //Me Get Accounts
     var result = await ewallet.meGetAccounts();
+
+    //UserSession
+    //Resources related to user session tokens.
+
+    //User
+    //Resources related to users.
 
     //Use All
     var data = {
@@ -97,14 +107,14 @@ async function main() {
 
     //Token Get
     var data = {
-        "id": token 
+        "id": token
     }
 
     var result = await ewallet.tokenGet(data);
 
     //Token Stat
     var data = {
-        "id": token 
+        "id": token
     }
 
     var result = await ewallet.tokenStats(data);
@@ -137,6 +147,7 @@ async function main() {
 
     var result = await ewallet.accountAll(data);
     var accounts = result.data.data;
+
     var account = accounts[0].id;
 
     //Account Get
@@ -178,10 +189,10 @@ async function main() {
     var result = await ewallet.accountUploadAvatar(data);
 
 
-    
 
 
-    
+
+
 
 
 
