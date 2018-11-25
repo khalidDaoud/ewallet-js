@@ -1,3 +1,2 @@
-const axios = require('axios');
-
-module.exports = axios;
+const ewallet = require('./lib/ewallet.js');
+module.exports = ewallet;
